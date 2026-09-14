@@ -15,13 +15,14 @@ class CashRegister:
             self.items.append(title)
 
     def apply_discount(self):
-         if self.discount:
-             discounted_total = self.total - (self.total * self.discount / 100)
-             self.total = discounted_total
-             print(f"After the discount, the total comes to ${self.total}.")
-         else:
-             print("There is no discount to apply.")
- 
+        if self.discount:
+            discounted_total = self.total - (self.total * self.discount / 100)
+            self.total = discounted_total
+            display_total = int(self.total) if self.total == int(self.total) else self.total
+            print(f"After the discount, the total comes to ${display_total}.")
+        else:
+            print("There is no discount to apply.")
+
     def void_last_transaction(self):
         self.total -= self.last_transaction
         self.last_transaction = 0
